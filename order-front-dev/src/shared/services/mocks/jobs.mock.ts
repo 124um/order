@@ -1,0 +1,86 @@
+import { DepartmentJob, JobStatus } from '@appTypes/types';
+
+export const jobsMock: DepartmentJob[] = [
+  {
+    id: '1',
+    name: 'Командир частини',
+    status: JobStatus.FILLED,
+    grade: 21,
+    isBoss: true,
+    rank: 'Полковник',
+    militaryProfessionCode: 2905003,
+    department: {
+      id: '1',
+      name: 'Командування',
+    },
+    user: {
+      id: '1',
+      fullName: 'Білий Сидір Гнатович',
+      rank: 'Полковник',
+      mainPhoto: '/images/avatars/1.png',
+      militaryStatus: 'active',
+    },
+  },
+  {
+    id: '2',
+    name: 'Заступник командира батальйону',
+    status: JobStatus.FILLED,
+    grade: 20,
+    isBoss: false,
+    rank: 'Підполковник',
+    militaryProfessionCode: 3104022,
+    department: {
+      id: '1',
+      name: 'Командування',
+    },
+    user: {
+      id: '2',
+      fullName: 'Хмельницький Богдан',
+      rank: 'Майор',
+      mainPhoto: '',
+      militaryStatus: 'mission',
+    },
+  },
+  {
+    id: '3',
+    name: 'Головний сержант',
+    status: JobStatus.FREE,
+    grade: 13,
+    isBoss: false,
+    rank: 'Сержант',
+    militaryProfessionCode: 7305001,
+    department: {
+      id: '1',
+      name: 'Командування',
+    },
+    user: null,
+  },
+  {
+    id: '4',
+    name: 'Начальник штабу – перший заступник командира батальйону',
+    status: JobStatus.FREE,
+    grade: 19,
+    isBoss: true,
+    rank: 'Полковник',
+    militaryProfessionCode: 290513,
+    department: {
+      id: '2',
+      name: 'Штаб',
+    },
+    user: null,
+  },
+  {
+    id: '5',
+    name: 'Офіцер',
+    status: JobStatus.FREE,
+    grade: 12,
+    isBoss: false,
+    rank: 'Старший лейтенант',
+    militaryProfessionCode: 451241,
+    department: {
+      id: '2',
+      name: 'Штаб',
+    },
+    user: null,
+  },
+];

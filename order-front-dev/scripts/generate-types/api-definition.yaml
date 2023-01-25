@@ -1,0 +1,2602 @@
+openapi: 3.0.1
+info:
+  version: '0.1'
+  title: 'Order back API'
+  description:
+    'API documentation for order-back HTTP API.'
+x-tagGroups:
+  - name: Address
+    tags:
+      - Address
+  - name: BloodType
+    tags:
+      - BloodType
+  - name: Contact
+    tags:
+      - Contact
+  - name: Degrees
+    tags:
+      - Degrees
+  - name: Education
+    tags:
+      - Education
+  - name: EducationType
+    tags:
+      - EducationType
+  - name: Job
+    tags:
+      - Job
+  - name: JobStatus
+    tags:
+      - JobStatus
+  - name: Department
+    tags:
+      - Department
+  - name: Passport
+    tags:
+      - Passport
+  - name: PersonalWeapon
+    tags:
+      - PersonalWeapon
+  - name: Personnel
+    tags:
+      - Personnel
+  - name: Rank
+    tags:
+      - Rank
+  - name: School
+    tags:
+      - School
+  - name: User
+    tags:
+      - User
+  - name: UserRole
+    tags:
+      - UserRole
+  - name: UserStatus
+    tags:
+      - UserStatus
+  - name: Login
+    tags:
+      - Login
+
+components:
+  schemas:
+    Address:
+      type: object
+      description: The Address managing API
+      required:
+        - city
+        - addressLine1
+        - addressLine2
+        - zip
+      properties:
+        id:
+          type: string
+          description: The generate id of the Address
+          example: fhfhfh-sdfdedsf-dvcxve-cvcvcv
+          enum:
+          - 0f51a1bc-1196-11ed-861d-0242ac120002
+          - 1dd00904-1196-11ed-861d-0242ac120002
+        city:
+          type: string
+          description: The Address city
+          example: Odesa
+          enum:
+          - Odesa
+          - Kherson
+        addressLine1:
+          type: string
+          description: The Address address_line_1
+          example: Portovaia 4
+          enum:
+          - Portovaia 4
+        addressLine2:
+          type: string
+          description: The Address address_line_2
+          example: Kulichkina 22
+          enum:
+          - Kulichkina 22 app 4
+        zip:
+          type: string
+          description: The Address zip
+          example: 81600
+          enum:
+          - 81600
+          - 65000
+
+    BloodType:
+      type: object
+      description: The BloodType managing API
+      required:
+        - bloodGroup
+        - rhd
+      properties:
+        id:
+          type: integer
+          description: The id of the BloodType
+          example: 1
+          enum:
+          - 1
+          - 2
+          - 4
+        bloodGroup:
+          type: string
+          description: The BloodType group
+          example: AB
+          enum:
+          - A
+          - B
+          - AB
+        rhd:
+          type: string
+          description: The BloodType rhd
+          example: +
+          enum:
+          - '-'
+          - '+'
+
+    Contact:
+      type: object
+      description: The Contact managing API
+      required:
+        - userId
+        - phone
+        - email
+        - nickname
+        - addressId
+        - customDescription
+      properties:
+        userId:
+          type: string
+          description: The user id
+          example: 'fhfhfh-sdfdedsf-dvcxve-cvcvcv'
+          enum:
+          - 0f51a1bc-1196-11ed-861d-0242ac120002
+          - 1dd00904-1196-11ed-861d-0242ac120002
+        phone:
+          type: string
+          description: The user phone
+          example: '+38098444567'
+        email:
+          type: string
+          description: The user email
+          example: 'popodolak@email.com'
+        nickname:
+          type: string
+          description: The user nickname
+          example: 'Dohlii'
+        addressId:
+          type: string
+          description: The user address id
+          example: 'fhfhfh-sdfdedsf-dvcxve-cvcvcv'
+          enum:
+          - 0f51a1bc-1196-11ed-861d-0242ac120002
+          - 1dd00904-1196-11ed-861d-0242ac120002
+        customDescription:
+          type: string
+          description: The user some description
+          example: 'У єтого юзера очень большие уши, он далеко слишит'
+
+    Degrees:
+      type: object
+      description: The Degrees managing API
+      required:
+        - name
+      properties:
+        id:
+          type: string
+          description: The auto-generated id of the Degrees
+          example: 'fhfhfh-sdfdedsf-dvcxve-cvcvcv'
+          enum:
+          - 0f51a1bc-1196-11ed-861d-0242ac120002
+          - 1dd00904-1196-11ed-861d-0242ac120002
+        name:
+          type: string
+          description: The Degrees city
+          example: 'Bakalavry'
+
+    Education:
+      type: object
+      description: The Education managing API
+      required:
+        - userId
+        - facultyId
+        - typeId
+        - startDate
+        - endDate
+        - degreeId
+        - images
+      properties:
+        id:
+          type: string
+          description: The auto-generated id of the Education
+          example: 'fhfhfh-sdfdedsf-dvcxve-cvcvcv'
+          enum:
+          - 0f51a1bc-1196-11ed-861d-0242ac120002
+          - 1dd00904-1196-11ed-861d-0242ac120002
+        userId:
+          type: string
+          description: The userId
+          example: 'fhfhfh-sdfdedsf-dvcxve-cvcvcv'
+          enum:
+          - 0f51a1bc-1196-11ed-861d-0242ac120002
+          - 1dd00904-1196-11ed-861d-0242ac120002
+        facultyId:
+          type: string
+          description: The facultyId
+          example: 'fhfhfh-sdfdedsf-dvcxve-cvcvcv'
+          enum:
+          - 0f51a1bc-1196-11ed-861d-0242ac120002
+          - 1dd00904-1196-11ed-861d-0242ac120002
+        typeId:
+          type: string
+          description: The typeId
+          example: College
+          enum:
+          - College
+          - Training
+        startDate:
+          type: string
+          description: The startDate
+          example: '2018-09-01'
+        endDate:
+          type: string
+          description: The endDate
+          example: '2022-09-01'
+        degreeId:
+          type: string
+          description: The degreeId
+          example: 'fhfhfh-sdfdedsf-dvcxve-cvcvcv'
+          enum:
+          - 0f51a1bc-1196-11ed-861d-0242ac120002
+          - 1dd00904-1196-11ed-861d-0242ac120002
+        images:
+          type: string
+          description: The images
+          example: ['fhfhfh-sdfdedsf-dvcxve-cvcvcv', '0f51a1bc-1196-11ed-861d-0242ac120002', '1dd00904-1196-11ed-861d-0242ac120002 ']
+
+    EducationType:
+      type: object
+      description: The EducationType managing API
+      required:
+        - value
+      properties:
+        key:
+          type: string
+          description: The EducationType key
+          example: 'COLLEGE'
+          enum:
+          - COLLEGE
+          - TRAINING
+        value:
+          type: string
+          description: The EducationType value
+          example: 'College'
+          enum:
+          - College
+          - Training
+
+    Faculties:
+      type: object
+      description: The Faculties managing API
+      required:
+        - schoolId
+        - name
+      properties:
+        id:
+          type: string
+          description: The auto-generated id of the Faculties
+          example: 'fhfhfh-sdfdedsf-dvcxve-cvcvcv'
+        schoolId:
+          type: string
+          description: The Faculties schoolId
+          example: 'fhfhfh-sdfdedsf-dvcxve-cvcvcv'
+        name:
+          type: string
+          description: The Faculties name
+          example: 'Mechnikova'
+
+    Job:
+      type: object
+      description: The Job managing API
+      required:
+        - name
+        - statusId
+        - grade
+        - militaryProfessionCode
+      properties:
+        id:
+          type: string
+          description: The auto-generated id of the Job
+          example: 'fhfhfh-sdfdedsf-dvcxve-cvcvcv'
+        name:
+          type: string
+          description: The name
+          example: 'Work workowvich'
+        statusId:
+          type: string
+          description: The statusId
+          example: 'fhfhfh-sdfdedsf-dvcxve-cvcvcv'
+        grade:
+          type: integer
+          description: The grade
+          example: 22
+        militaryProfessionCode:
+          type: integer
+          description: The typeId
+          example: 2344432
+
+    JobStatus:
+      type: object
+      description: The JobStatus managing API
+      required:
+        - value
+      properties:
+        key:
+          type: string
+          description: The JobStatus key
+          example: 'RESERVED'
+          enum:
+          - RESERVED
+          - FILLED
+          - TEMPORARY_FILLED
+          - FREE
+        value:
+          type: string
+          description: The JobStatus value
+          example: 'Reserved'
+          enum:
+          - Reserved
+          - Filled
+          - TemporaryFilled
+          - Free
+
+    Department:
+      type: object
+      description: The Department managing API
+      required:
+        - name
+        - addressId
+      properties:
+        id:
+          type: string
+          description: The auto-generated id of the Department
+          example: 'fhfhfh-sdfdedsf-dvcxve-cvcvcv'
+        name:
+          type: string
+          description: The name
+          example: 'MVD'
+        addressId:
+          type: string
+          description: The addressId
+          example: 'fhfhfh-sdfdedsf-dvcxve-cvcvcv'
+
+    Passport:
+      type: object
+      description: The Passport managing API
+      required:
+        - userId
+        - number
+        - dateIssued
+        - dateValid
+        - issuedBy
+        - registeredAddressId
+      properties:
+        userId:
+          type: string
+          description: The user id
+          example: 'fhfhfh-sdfdedsf-dvcxve-cvcvcv'
+        number:
+          type: string
+          description: The number
+          example: 'MK444959596'
+        dateIssued:
+          type: string
+          description: The dateIssued
+          example: '15.11.2005'
+        dateValid:
+          type: string
+          description: The dateValid
+          example: '15.11.2005'
+        issuedBy:
+          type: string
+          description: The issuedBy
+          example: issuedBy
+        registeredAddressId:
+          type: string
+          description: The registeredAddressId id
+          example: 'fhfhfh-sdfdedsf-dvcxve-cvcvcv'
+
+    PersonalWeapon:
+      type: object
+      description: The PersonalWeapon managing API
+      required:
+        - userId
+        - name
+        - description
+        - code
+      properties:
+        id:
+          type: string
+          description: The auto-generated id of the PersonalWeapon
+          example: 'fhfhfh-sdfdedsf-dvcxve-cvcvcv'
+        userId:
+          type: string
+          description: The userId
+          example: 'fhfhfh-sdfdedsf-dvcxve-cvcvcv'
+        name:
+          type: string
+          description: The name
+          example: Jovelik
+        description:
+          type: string
+          description: The description
+          example: Jovelik bubuh
+        code:
+          type: integer
+          description: The code
+          example: 232
+
+    Personnel:
+      type: object
+      description: The Personnel managing API
+      required:
+        - userId
+        - fullName
+        - bloodTypeId
+        - dateOfBirth
+        - mainPhoto
+        - ipn
+        - createdOn
+        - updatedOn
+        - enlistmentDate
+        - enlistmentDepartmentId
+        - rankId
+      properties:
+        userId:
+          type: string
+          description: The Personnel userId
+          example: 'fhfhfh-sdfdedsf-dvcxve-cvcvcv'
+        fullName:
+          type: string
+          description: The Personnel fullName
+          example: 'Perec Ivanovich'
+        bloodTypeId:
+          type: integer
+          description: The bloodTypeId
+          example: 1
+          enum:
+          - 1
+          - 2
+          - 3
+        dateOfBirth:
+          type: string
+          description: The dateOfBirth
+          example: '02-09-2020'
+        mainPhoto:
+          type: string
+          description: The mainPhoto
+          example: 'kfjdkjkj48hucvcvcv'
+        ipn:
+          type: string
+          description: The ipn
+          example: 'NHG2889884848'
+        createdOn:
+          type: string
+          description: The createdOn
+          example: '09-09-2022:22-22'
+        updatedOn:
+          type: string
+          description: The updatedOn
+          example: '09-09-2022:22-22'
+        enlistmentDate:
+          type: string
+          description: The enlistmentDate
+          example: '04-04-2022'
+        enlistmentDepartmentId:
+          type: string
+          description: The enlistmentDepartmentId
+          example: 'fhfhfh-sdfdedsf-dvcxve-cvcvcv'
+        rankId:
+          type: integer
+          description: The rankId
+          example: 1
+          enum:
+          - 1
+          - 2
+          - 3
+
+    Rank:
+      type: object
+      description: The Rank managing API
+      required:
+        - userId
+        - name
+        - description
+        - code
+      properties:
+        id:
+          type: integer
+          description: The auto-generated id of the Rank
+          example: 22
+        name:
+          type: string
+          description: The name
+          example: капітан
+        weight:
+          type: integer
+          description: The weight
+          example: 22
+        type:
+          type: string
+          description: The type
+          example: REGULAR
+
+    School:
+      type: object
+      description: The School managing API
+      required:
+        - name
+      properties:
+        id:
+          type: string
+          description: The auto-generated id of the School
+          example: 'fhfhfh-sdfdedsf-dvcxve-cvcvcv'
+        name:
+          type: string
+          description: The School city
+          example: 'The School city 77'
+
+    User:
+      description: The User managing API
+      type: object
+      required:
+        - id
+        - userStatus
+        - role
+        - createdOn
+        - updatedOn
+        - militaryStatus
+      properties:
+        id:
+          type: string
+          description: The auto-generated id of the Department
+          example: 'fhfhfh-sdfdedsf-dvcxve-cvcvcv'
+        userStatus:
+          type: string
+          description: The User status
+          example: UserStatus.ACTIVE
+          enum:
+          - Active
+          - Inactive
+        role:
+          type: string
+          description: The User role
+          example: UserRole.SUPERADMIN
+          enum:
+          - User
+          - Admin
+          - Superadmin
+        createdOn:
+          type: string
+          description: The Department createdOn
+          example: '12:00:03:05:2022'
+        updatedOn:
+          type: string
+          description: The Department updatedOn
+          example: '13:00:03:05:2022'
+        militaryStatus:
+          type: string
+          description: The User military Status
+          example: 'мобилизирован'
+          enum:
+          - Мобилизирован
+          - В резерве
+
+    UserRole:
+      description: The UserRole managing API
+      type: object
+      required:
+        - value
+      properties:
+        key:
+          type: string
+          description: The UserRole key
+          example: 'ADMIN'
+          enum:
+          - USER
+          - ADMIN
+          - SUPERADMIN
+        value:
+          type: string
+          description: The UserRole value
+          example: 'Admin'
+          enum:
+          - User
+          - Admin
+          - Superadmin
+
+    UserStatus:
+      type: object
+      description: The UserStatus managing API
+      required:
+        - value
+      properties:
+        key:
+          type: string
+          description: The UserStatus key
+          example: 'ACTIVE'
+          enum:
+          - ACTIVE
+          - INACTIVE
+        value:
+          type: string
+          description: The UserStatus value
+          example: 'Active'
+          enum:
+          - Active
+          - Inactive
+
+    Login:
+      type: object
+      required:
+      - username
+      - password
+      properties:
+        username:
+          type: string
+          description: The username
+          example: user1
+        password:
+          type: string
+          description: The password
+          example: defaultpass
+
+    Bearer:
+      type: object
+      required:
+        - bearerAuth
+      properties:
+        bearerAuth:
+          type: string
+          description: The auto-generated bearerAuth
+          example: 'fhfhfhfhfhfhfhfhfhfhfhfhfhfhfhfhfhfhfhfhfhfhfhfhfhfhfhfhfhfh-sdfdedsf-dvcxve-cvcvcv'
+
+  securitySchemes:
+    bearerAuth:
+      name: Authorization
+      type: http
+      bearerFormat: JWT
+      scheme: Bearer
+      in: header
+
+  responses:
+    UnauthorizedError:
+      description: Access token is missing or invalid
+      headers:
+        WWW_Authenticate:
+           schema:
+             type: string
+security:
+  - bearerAuth: []
+
+paths:
+  /user/statuses:
+    get:
+      security:
+        - bearerAuth: []
+      tags: [UserStatus]
+      responses:
+        200:
+          description: The list of the UserStatus
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/UserStatus'
+        401:
+          $ref: '#/components/responses/UnauthorizedError'
+
+    post:
+      security:
+        - bearerAuth: []
+      summary: Create a new UserStatus
+      tags: [UserStatus]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserStatus'
+      responses:
+        200:
+          description: The UserStatus was successfully created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserStatus'
+        500:
+          description: Some server error
+        401:
+          $ref: '#/components/responses/UnauthorizedError'
+
+  /user/statuses/{key}:
+    get:
+      security:
+        - bearerAuth: []
+      description: Use to request one UserStatus
+      tags: [UserStatus]
+      parameters:
+        - in: path
+          name: key
+          schema:
+            type: string
+          required: true
+          description: The UserStatus key
+      responses:
+        200:
+          description: The UserStatus description by key
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserStatus'
+        404:
+          description: The UserStatus was not found
+        401:
+          $ref: '#/components/responses/UnauthorizedError'
+
+    put:
+      security:
+        - bearerAuth: []
+      summary: Update the UserStatus by the key
+      tags: [UserStatus]
+      parameters:
+        - in: path
+          name: key
+          schema:
+            type: string
+          required: true
+          description: The UserStatus id
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserStatus'
+      responses:
+        200:
+          description: The UserStatus was updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserStatus'
+        404:
+          description: The UserStatus was not found
+        500:
+          description: Some error happened
+        401:
+          $ref: '#/components/responses/UnauthorizedError'
+
+  /user/statuses/deleted/{key}:
+    delete:
+      security:
+        - bearerAuth: []
+      summary: Delete the UserStatus by key
+      tags: [UserStatus]
+      parameters:
+        - in: path
+          name: key
+          schema:
+            type: string
+          required: true
+          description: The UserStatus key
+      responses:
+        200:
+          description: The UserStatus was deleted
+        404:
+          description: The UserStatus was not found
+        401:
+          $ref: '#/components/responses/UnauthorizedError'
+
+  /user/roles:
+    get:
+      security:
+        - bearerAuth: []
+      tags: [UserRole]
+      responses:
+        200:
+          description: The list of the UserRole
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/UserRole'
+        401:
+          $ref: '#/components/responses/UnauthorizedError'
+
+  /user/roles/{key}:
+    get:
+      security:
+        - bearerAuth: []
+      description: Use to request one UserRole
+      tags: [UserRole]
+      parameters:
+        - in: path
+          name: key
+          schema:
+            type: string
+          required: true
+          description: The UserRole key
+      responses:
+        200:
+          description: The UserRole description by key
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserRole'
+        404:
+          description: The UserRole was not found
+        401:
+          $ref: '#/components/responses/UnauthorizedError'
+
+  /user/role:
+    post:
+      security:
+        - bearerAuth: []
+      summary: Create a new UserRole
+      tags: [UserRole]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserRole'
+      responses:
+        200:
+          description: The UserRole was successfully created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserRole'
+        500:
+          description: Some server error
+        401:
+          $ref: '#/components/responses/UnauthorizedError'
+
+  /user/role/{key}:
+    put:
+      security:
+        - bearerAuth: []
+      summary: Update the UserRole by the key
+      tags: [UserRole]
+      parameters:
+        - in: path
+          name: key
+          schema:
+            type: string
+          required: true
+          description: The UserRole id
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserRole'
+      responses:
+        200:
+          description: The UserRole was updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserRole'
+        404:
+          description: The UserRole was not found
+        500:
+          description: Some error happened
+        401:
+          $ref: '#/components/responses/UnauthorizedError'
+
+  /user/roles/deleted/{key}:
+    delete:
+      security:
+        - bearerAuth: []
+      summary: Delete the UserRole by key
+      tags: [UserRole]
+      parameters:
+        - in: path
+          name: key
+          schema:
+            type: string
+          required: true
+          description: The UserRole key
+      responses:
+        200:
+          description: The UserRole was deleted
+        404:
+          description: The UserRole was not found
+        401:
+          $ref: '#/components/responses/UnauthorizedError'
+
+  /users/{id}:
+    get:
+      security:
+        - bearerAuth: []
+      description: Use to request one user
+      tags: [User]
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: string
+          required: true
+          description: The User id
+      responses:
+        200:
+          description: The User description by id
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+        404:
+          description: The User was not found
+        401:
+          $ref: '#/components/responses/UnauthorizedError'
+
+    put:
+      security:
+        - bearerAuth: []
+      summary: Update the User by the id
+      tags: [User]
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: string
+          required: true
+          description: The User id
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+      responses:
+        200:
+          description: The User was updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+        404:
+          description: The User was not found
+        500:
+          description: Some error happened
+        401:
+          $ref: '#/components/responses/UnauthorizedError'
+
+  /users:
+    get:
+      security:
+        - bearerAuth: []
+      tags: [User]
+      responses:
+        200:
+          description: The list of the User
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/User'
+    post:
+      security:
+        - bearerAuth: []
+      summary: Create a new User
+      tags: [User]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+      responses:
+        200:
+          description: The User was successfully created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+        500:
+          description: Some server error
+        401:
+          $ref: '#/components/responses/UnauthorizedError'
+
+  /users/deleted/{id}:
+    delete:
+      security:
+        - bearerAuth: []
+      summary: Remove the User by id
+      tags: [User]
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: string
+          required: true
+          description: The User id
+      responses:
+        200:
+          description: The User was deleted
+        404:
+          description: The User was not found
+        401:
+          $ref: '#/components/responses/UnauthorizedError'
+
+  /schools:
+    get:
+      security:
+        - bearerAuth: []
+      tags: [School]
+      responses:
+        200:
+          description: The list of the School
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/School'
+        401:
+          $ref: '#/components/responses/UnauthorizedError'
+
+    post:
+      security:
+        - bearerAuth: []
+      summary: Create a new School
+      tags: [School]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/School'
+      responses:
+        200:
+          description: The School was successfully created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/School'
+        500:
+          description: Some server error
+        401:
+          $ref: '#/components/responses/UnauthorizedError'
+
+  /schools/{id}:
+    get:
+      security:
+        - bearerAuth: []
+      description: Use to request one School
+      tags: [School]
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: string
+          required: true
+          description: The School id
+      responses:
+        200:
+          description: The School description by id
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/School'
+        404:
+          description: The School was not found
+        401:
+          $ref: '#/components/responses/UnauthorizedError'
+
+    put:
+      security:
+        - bearerAuth: []
+      summary: Update the School by the id
+      tags: [School]
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: string
+          required: true
+          description: The School id
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/School'
+      responses:
+        200:
+          description: The School was updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/School'
+        404:
+          description: The School was not found
+        500:
+          description: Some error happened
+        401:
+          $ref: '#/components/responses/UnauthorizedError'
+
+  /schools/deleted/{id}:
+    delete:
+      security:
+        - bearerAuth: []
+      summary: Delete the School by id
+      tags: [School]
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: string
+          required: true
+          description: The School id
+      responses:
+        200:
+          description: The School was deleted
+        404:
+          description: The School was not found
+        401:
+          $ref: '#/components/responses/UnauthorizedError'
+
+  /ranks:
+    get:
+      security:
+        - bearerAuth: []
+      tags: [Rank]
+      responses:
+        200:
+          description: The list of the Rank
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Rank'
+        401:
+          $ref: '#/components/responses/UnauthorizedError'
+
+  /ranks/{id}:
+    get:
+      security:
+        - bearerAuth: []
+      description: Use to request one Rank
+      tags: [Rank]
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: string
+          required: true
+          description: The Rank id
+      responses:
+        200:
+          description: The Rank description by id
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Rank'
+        404:
+          description: The Rank was not found
+        401:
+          $ref: '#/components/responses/UnauthorizedError'
+
+  /personnels:
+    get:
+      security:
+        - bearerAuth: []
+      tags: [Personnel]
+      responses:
+        200:
+          description: The list of the Personnel
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Personnel'
+        401:
+          $ref: '#/components/responses/UnauthorizedError'
+
+    post:
+      security:
+        - bearerAuth: []
+      summary: Create a new Personnel
+      tags: [Personnel]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Personnel'
+      responses:
+        200:
+          description: The Personnel was successfully created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Personnel'
+        500:
+          description: Some server error
+        401:
+          $ref: '#/components/responses/UnauthorizedError'
+
+  /personnels/{id}:
+    get:
+      security:
+        - bearerAuth: []
+      description: Use to request one Personnel
+      tags: [Personnel]
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: string
+          required: true
+          description: The Personnel id
+      responses:
+        200:
+          description: The Personnel description by id
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Personnel'
+        404:
+          description: The Personnel was not found
+        401:
+          $ref: '#/components/responses/UnauthorizedError'
+
+    put:
+      security:
+        - bearerAuth: []
+      summary: Update the Personnel by the id
+      tags: [Personnel]
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: string
+          required: true
+          description: The Personnel id
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Personnel'
+      responses:
+        200:
+          description: The Personnel was updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Personnel'
+        404:
+          description: The Personnel was not found
+        500:
+          description: Some error happened
+        401:
+          $ref: '#/components/responses/UnauthorizedError'
+
+  /personnels/deleted/{id}:
+    delete:
+      security:
+        - bearerAuth: []
+      summary: Delete the Personnel by id
+      tags: [Personnel]
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: string
+          required: true
+          description: The Personnel id
+      responses:
+        200:
+          description: The Personnel was deleted
+        404:
+          description: The Personnel was not found
+        401:
+          $ref: '#/components/responses/UnauthorizedError'
+
+  /weapons:
+    get:
+      security:
+        - bearerAuth: []
+      tags: [PersonalWeapon]
+      responses:
+        200:
+          description: The list of the PersonalWeapon
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/PersonalWeapon'
+        401:
+          $ref: '#/components/responses/UnauthorizedError'
+
+    post:
+      security:
+        - bearerAuth: []
+      summary: Create a new weapons
+      tags: [PersonalWeapon]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PersonalWeapon'
+      responses:
+        200:
+          description: The weapons was successfully created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PersonalWeapon'
+        500:
+          description: Some server error
+        401:
+          $ref: '#/components/responses/UnauthorizedError'
+
+  /weapons/{id}:
+    get:
+      security:
+        - bearerAuth: []
+      description: Use to request one weapons
+      tags: [PersonalWeapon]
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: string
+          required: true
+          description: The weapons id
+      responses:
+        200:
+          description: The weapons description by id
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PersonalWeapon'
+        404:
+          description: The weapons was not found
+        401:
+          $ref: '#/components/responses/UnauthorizedError'
+
+    put:
+      security:
+        - bearerAuth: []
+      summary: Update the PersonalWeapon by the id
+      tags: [PersonalWeapon]
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: string
+          required: true
+          description: The PersonalWeapon id
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PersonalWeapon'
+      responses:
+        200:
+          description: The PersonalWeapon was updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PersonalWeapon'
+        404:
+          description: The PersonalWeapon was not found
+        500:
+          description: Some error happened
+        401:
+          $ref: '#/components/responses/UnauthorizedError'
+
+  /weapons/deleted/{id}:
+    delete:
+      security:
+        - bearerAuth: []
+      summary: Delete the PersonalWeapon by id
+      tags: [PersonalWeapon]
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: string
+          required: true
+          description: The PersonalWeapon id
+      responses:
+        200:
+          description: The PersonalWeapon was deleted
+        404:
+          description: The PersonalWeapon was not found
+        401:
+          $ref: '#/components/responses/UnauthorizedError'
+
+  /passports:
+    get:
+      security:
+        - bearerAuth: []
+      tags: [Passport]
+      responses:
+        200:
+          description: The list of the Passport
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Passport'
+        401:
+          $ref: '#/components/responses/UnauthorizedError'
+
+    post:
+      security:
+        - bearerAuth: []
+      summary: Create a new passports
+      tags: [Passport]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Passport'
+      responses:
+        200:
+          description: The passports was successfully created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Passport'
+        500:
+          description: Some server error
+        401:
+          $ref: '#/components/responses/UnauthorizedError'
+
+  /passports/{id}:
+    get:
+      security:
+        - bearerAuth: []
+      description: Use to request one passports
+      tags: [Passport]
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: string
+          required: true
+          description: The passports userId
+      responses:
+        200:
+          description: The passports description by userId
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Passport'
+        404:
+          description: The passports was not found
+        401:
+          $ref: '#/components/responses/UnauthorizedError'
+
+    put:
+      security:
+        - bearerAuth: []
+      summary: Update the Passport by the id
+      tags: [Passport]
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: string
+          required: true
+          description: The Passport id
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Passport'
+      responses:
+        200:
+          description: The Passport was updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Passport'
+        404:
+          description: The Passport was not found
+        500:
+          description: Some error happened
+        401:
+          $ref: '#/components/responses/UnauthorizedError'
+
+  /passports/deleted/{id}:
+    delete:
+      security:
+        - bearerAuth: []
+      summary: Delete the Passport by id
+      tags: [Passport]
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: string
+          required: true
+          description: The Passport id
+      responses:
+        200:
+          description: The Passport was deleted
+        404:
+          description: The Passport was not found
+        401:
+          $ref: '#/components/responses/UnauthorizedError'
+
+  /departments:
+    get:
+      security:
+        - bearerAuth: []
+      tags: [Department]
+      responses:
+        200:
+          description: The list of the Department
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Department'
+        401:
+          $ref: '#/components/responses/UnauthorizedError'
+
+    post:
+      security:
+        - bearerAuth: []
+      summary: Create a new departments
+      tags: [Department]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Department'
+      responses:
+        200:
+          description: The depatrment was successfully created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Department'
+        500:
+          description: Some server error
+        401:
+          $ref: '#/components/responses/UnauthorizedError'
+
+  /departments/{id}:
+    get:
+      security:
+        - bearerAuth: []
+      description: Use to request one departments
+      tags: [Department]
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: string
+          required: true
+          description: The departments id
+      responses:
+        200:
+          description: The education description by id
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Department'
+        404:
+          description: The departments was not found
+        401:
+          $ref: '#/components/responses/UnauthorizedError'
+
+    put:
+      security:
+        - bearerAuth: []
+      summary: Update the Department by the id
+      tags: [Department]
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: string
+          required: true
+          description: The Department id
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Department'
+      responses:
+        200:
+          description: The Department was updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Department'
+        404:
+          description: The Department was not found
+        500:
+          description: Some error happened
+        401:
+          $ref: '#/components/responses/UnauthorizedError'
+
+  /departments/deleted/{id}:
+    delete:
+      security:
+        - bearerAuth: []
+      summary: Delete the Department by id
+      tags: [Department]
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: string
+          required: true
+          description: The Department id
+      responses:
+        200:
+          description: The Department was deleted
+        404:
+          description: The Department was not found
+        401:
+          $ref: '#/components/responses/UnauthorizedError'
+
+  /jobs/statuses:
+    get:
+      security:
+        - bearerAuth: []
+      tags: [JobStatus]
+      responses:
+        200:
+          description: The list of the JobStatus
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/JobStatus'
+        401:
+          $ref: '#/components/responses/UnauthorizedError'
+
+  /jobs/statuses/{key}:
+    get:
+      security:
+        - bearerAuth: []
+      description: Use to request one type
+      tags: [JobStatus]
+      parameters:
+        - in: path
+          name: key
+          schema:
+            type: string
+          required: true
+          description: The type key
+      responses:
+        200:
+          description: The type description by key
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JobStatus'
+        404:
+          description: The JobStatus was not found
+        401:
+          $ref: '#/components/responses/UnauthorizedError'
+
+  /jobs:
+    get:
+      security:
+        - bearerAuth: []
+      tags: [Job]
+      responses:
+        200:
+          description: The list of the Job
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Job'
+        401:
+          $ref: '#/components/responses/UnauthorizedError'
+
+    post:
+      security:
+        - bearerAuth: []
+      summary: Create a new job
+      tags: [Job]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Job'
+      responses:
+        200:
+          description: The job was successfully created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Job'
+        500:
+          description: Some server error
+        401:
+          $ref: '#/components/responses/UnauthorizedError'
+
+  /jobs/{id}:
+    get:
+      security:
+        - bearerAuth: []
+      description: Use to request one job
+      tags: [Job]
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: string
+          required: true
+          description: The job id
+      responses:
+        200:
+          description: The job description by id
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Job'
+        404:
+          description: The job was not found
+        401:
+          $ref: '#/components/responses/UnauthorizedError'
+
+    put:
+      security:
+        - bearerAuth: []
+      summary: Update the Job by the id
+      tags: [Job]
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: string
+          required: true
+          description: The Job id
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Job'
+      responses:
+        200:
+          description: The Job was updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Job'
+        404:
+          description: The Job was not found
+        500:
+          description: Some error happened
+        401:
+          $ref: '#/components/responses/UnauthorizedError'
+
+  /jobs/deleted/{id}:
+    delete:
+      security:
+        - bearerAuth: []
+      summary: Delete the Job by id
+      tags: [Job]
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: string
+          required: true
+          description: The Job id
+      responses:
+        200:
+          description: The Job was deleted
+        404:
+          description: The Job was not found
+        401:
+          $ref: '#/components/responses/UnauthorizedError'
+
+  /faculties:
+    get:
+      security:
+        - bearerAuth: []
+      tags: [Faculties]
+      responses:
+        200:
+          description: The list of the Faculties
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Faculties'
+        401:
+          $ref: '#/components/responses/UnauthorizedError'
+
+    post:
+      security:
+        - bearerAuth: []
+      summary: Create a new faculties
+      tags: [Faculties]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Faculties'
+      responses:
+        200:
+          description: The faculties was successfully created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Faculties'
+        500:
+          description: Some server error
+        401:
+          $ref: '#/components/responses/UnauthorizedError'
+
+  /faculties/{id}:
+    get:
+      security:
+        - bearerAuth: []
+      description: Use to request one faculties
+      tags: [Faculties]
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: string
+          required: true
+          description: The faculties id
+      responses:
+        200:
+          description: The faculties description by id
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Faculties'
+        404:
+          description: The faculties was not found
+        401:
+          $ref: '#/components/responses/UnauthorizedError'
+
+    put:
+      security:
+        - bearerAuth: []
+      summary: Update the Faculties by the id
+      tags: [Faculties]
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: string
+          required: true
+          description: The Faculties id
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Faculties'
+      responses:
+        200:
+          description: The Faculties was updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Faculties'
+        404:
+          description: The Faculties was not found
+        500:
+          description: Some error happened
+        401:
+          $ref: '#/components/responses/UnauthorizedError'
+
+  /faculties/deleted/{id}:
+    delete:
+      security:
+        - bearerAuth: []
+      summary: Delete the Faculties by id
+      tags: [Faculties]
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: string
+          required: true
+          description: The Faculties id
+      responses:
+        200:
+          description: The Faculties was deleted
+        404:
+          description: The Faculties was not found
+        401:
+          $ref: '#/components/responses/UnauthorizedError'
+
+  /education/types:
+    get:
+      security:
+        - bearerAuth: []
+      tags: [EducationType]
+      responses:
+        200:
+          description: The list of the EducationType
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/EducationType'
+        401:
+          $ref: '#/components/responses/UnauthorizedError'
+
+    post:
+      security:
+        - bearerAuth: []
+      summary: Create a new type
+      tags: [EducationType]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EducationType'
+      responses:
+        200:
+          description: The type was successfully created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EducationType'
+        500:
+          description: Some server error
+        401:
+          $ref: '#/components/responses/UnauthorizedError'
+
+  /education/types/{key}:
+    get:
+      security:
+        - bearerAuth: []
+      description: Use to request one type
+      tags: [EducationType]
+      parameters:
+        - in: path
+          name: key
+          schema:
+            type: string
+          required: true
+          description: The type key
+      responses:
+        200:
+          description: The type description by key
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EducationType'
+        404:
+          description: The address was not found
+        401:
+          $ref: '#/components/responses/UnauthorizedError'
+
+    put:
+      security:
+        - bearerAuth: []
+      summary: Update the EducationType by the key
+      tags: [EducationType]
+      parameters:
+        - in: path
+          name: key
+          schema:
+            type: string
+          required: true
+          description: The EducationType id
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EducationType'
+      responses:
+        200:
+          description: The EducationType was updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EducationType'
+        404:
+          description: The EducationType was not found
+        500:
+          description: Some error happened
+        401:
+          $ref: '#/components/responses/UnauthorizedError'
+
+  /education/types/deleted/{key}:
+    delete:
+      security:
+        - bearerAuth: []
+      summary: Delete the EducationType by key
+      tags: [EducationType]
+      parameters:
+        - in: path
+          name: key
+          schema:
+            type: string
+          required: true
+          description: The EducationType key
+      responses:
+        200:
+          description: The EducationType was deleted
+        404:
+          description: The EducationType was not found
+        401:
+          $ref: '#/components/responses/UnauthorizedError'
+
+  /educations:
+    get:
+      security:
+        - bearerAuth: []
+      tags: [Education]
+      responses:
+        200:
+          description: The list of the Education
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Education'
+        401:
+          $ref: '#/components/responses/UnauthorizedError'
+
+    post:
+      security:
+        - bearerAuth: []
+      summary: Create a new education
+      tags: [Education]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Education'
+      responses:
+        200:
+          description: The education was successfully created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Education'
+        500:
+          description: Some server error
+        401:
+          $ref: '#/components/responses/UnauthorizedError'
+
+  /educations/{id}:
+    get:
+      security:
+        - bearerAuth: []
+      description: Use to request one education
+      tags: [Education]
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: string
+          required: true
+          description: The education id
+      responses:
+        200:
+          description: The education description by id
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Education'
+        404:
+          description: The education was not found
+        401:
+          $ref: '#/components/responses/UnauthorizedError'
+
+    put:
+      security:
+        - bearerAuth: []
+      summary: Update the Education by the id
+      tags: [Education]
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: string
+          required: true
+          description: The Education id
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Education'
+      responses:
+        200:
+          description: The Education was updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Education'
+        404:
+          description: The Education was not found
+        500:
+          description: Some error happened
+        401:
+          $ref: '#/components/responses/UnauthorizedError'
+
+  /educations/deleted/{id}:
+    delete:
+      security:
+        - bearerAuth: []
+      summary: Delete the Education by id
+      tags: [Education]
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: string
+          required: true
+          description: The Education id
+      responses:
+        200:
+          description: The Education was deleted
+        404:
+          description: The Education was not found
+        401:
+          $ref: '#/components/responses/UnauthorizedError'
+
+  /degrees:
+    get:
+      security:
+        - bearerAuth: []
+      tags: [Degrees]
+      responses:
+        200:
+          description: The list of the Degrees
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Degrees'
+        401:
+          $ref: '#/components/responses/UnauthorizedError'
+
+    post:
+      security:
+        - bearerAuth: []
+      summary: Create a new degrees
+      tags: [Degrees]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Degrees'
+      responses:
+        200:
+          description: The degrees was successfully created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Degrees'
+        500:
+          description: Some server error
+        401:
+          $ref: '#/components/responses/UnauthorizedError'
+
+  /degrees/{id}:
+    get:
+      security:
+        - bearerAuth: []
+      description: Use to request one degrees
+      tags: [Degrees]
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: string
+          required: true
+          description: The degrees id
+      responses:
+        200:
+          description: The degrees description by id
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Degrees'
+        404:
+          description: The degrees was not found
+        401:
+          $ref: '#/components/responses/UnauthorizedError'
+
+    put:
+      security:
+        - bearerAuth: []
+      summary: Update the Degrees by the id
+      tags: [Degrees]
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: string
+          required: true
+          description: The Degrees id
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Degrees'
+      responses:
+        200:
+          description: The Degrees was updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Degrees'
+        404:
+          description: The Degrees was not found
+        500:
+          description: Some error happened
+        401:
+          $ref: '#/components/responses/UnauthorizedError'
+
+  /degrees/deleted/{id}:
+    delete:
+      security:
+        - bearerAuth: []
+      summary: Delete the Degrees by id
+      tags: [Degrees]
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: string
+          required: true
+          description: The Degrees id
+      responses:
+        200:
+          description: The Degrees was deleted
+        404:
+          description: The Degrees was not found
+        401:
+          $ref: '#/components/responses/UnauthorizedError'
+
+  /contacts:
+    get:
+      security:
+        - bearerAuth: []
+      tags: [Contact]
+      responses:
+        200:
+          description: The list of the Contact
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Contact'
+        401:
+          $ref: '#/components/responses/UnauthorizedError'
+
+    post:
+      security:
+        - bearerAuth: []
+      summary: Create a new contacts
+      tags: [Contact]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Contact'
+      responses:
+        200:
+          description: The address was successfully created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Contact'
+        500:
+          description: Some server error
+        401:
+          $ref: '#/components/responses/UnauthorizedError'
+
+  /contacts/{id}:
+    get:
+      security:
+        - bearerAuth: []
+      description: Use to request one address
+      tags: [Contact]
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: string
+          required: true
+          description: The address id
+      responses:
+        200:
+          description: The address description by id
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Contact'
+        404:
+          description: The address was not found
+        401:
+          $ref: '#/components/responses/UnauthorizedError'
+
+    put:
+      security:
+        - bearerAuth: []
+      summary: Update the Contact by the id
+      tags: [Contact]
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: string
+          required: true
+          description: The Contact id
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Contact'
+      responses:
+        200:
+          description: The Contact was updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Contact'
+        401:
+          $ref: '#/components/responses/UnauthorizedError'
+        404:
+          description: The Contact was not found
+        500:
+          description: Some error happened
+
+  /contacts/deleted/{id}:
+    delete:
+      security:
+        - bearerAuth: []
+      summary: Delete the Contact by id
+      tags: [Contact]
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: string
+          required: true
+          description: The Contact id
+      responses:
+        200:
+          description: The Contact was deleted
+        401:
+          $ref: '#/components/responses/UnauthorizedError'
+        404:
+          description: The Contact was not found
+
+  /bloods:
+    get:
+      security:
+        - bearerAuth: []
+      tags: [BloodType]
+      responses:
+        200:
+          description: The list of the BloodType
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/BloodType'
+        401:
+          $ref: '#/components/responses/UnauthorizedError'
+
+  /bloods/{id}:
+    get:
+      security:
+        - bearerAuth: []
+      description: Use to request one blood
+      tags: [BloodType]
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: string
+          required: true
+          description: The blood id
+      responses:
+        200:
+          description: The blood description by id
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BloodType'
+        401:
+          $ref: '#/components/responses/UnauthorizedError'
+        404:
+          description: The blood was not found
+
+  /address:
+    get:
+      security:
+        - bearerAuth: []
+      tags: [Address]
+      responses:
+        200:
+          description: The list of the Address
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Address'
+        401:
+          $ref: '#/components/responses/UnauthorizedError'
+
+    post:
+      security:
+        - bearerAuth: []
+      summary: Create a new address
+      tags: [Address]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Address'
+      responses:
+        200:
+          description: The address was successfully created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Address'
+        401:
+          $ref: '#/components/responses/UnauthorizedError'
+        500:
+          description: Some server error
+
+  /address/{id}:
+    get:
+      security:
+        - bearerAuth: []
+      description: Use to request one address
+      tags: [Address]
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: string
+          required: true
+          description: The address id
+      responses:
+        200:
+          description: The address description by id
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Address'
+        401:
+          $ref: '#/components/responses/UnauthorizedError'
+        404:
+          description: The address was not found
+
+    put:
+      security:
+        - bearerAuth: []
+      summary: Update the Address by the id
+      tags: [Address]
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: string
+          required: true
+          description: The Address id
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Address'
+      responses:
+        200:
+          description: The Address was updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Address'
+        401:
+          $ref: '#/components/responses/UnauthorizedError'
+        404:
+          description: The Address was not found
+        500:
+          description: Some error happened
+
+  /address/deleted/{id}:
+    delete:
+      security:
+        - bearerAuth: []
+      summary: Delete the Address by id
+      tags: [Address]
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: string
+          required: true
+          description: The Address id
+      responses:
+        200:
+          description: The Address was deleted
+        401:
+          $ref: '#/components/responses/UnauthorizedError'
+        404:
+          description: The Address was not found
+
+  /auth/login/:
+    post:
+      summary: Login
+      tags: [Login]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Login'
+      responses:
+        200:
+          description: The Address was updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Bearer'
+        401:
+          $ref: '#/components/responses/UnauthorizedError'
+        404:
+          description: The user or password incorrect
+        500:
+          description: Some error happened
